@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>java script</title>
+    <script>
+        var correct = 0, wrong = 0;
+        function processPhrase() {
+
+            secretphrase = document.getElementById("secretphrase").value
+            checkphrase = document.getElementById("checkphrase").value
+            if (secretphrase == checkphrase) {
+                correct = correct + 1;
+                document.getElementById("result").innerHTML = "Correct count " + correct;
+                alert("access allowed");
+            } else {
+
+                wrong = wrong + 1;
+                document.getElementById("result").innerHTML = "Wrong count " + wrong;
+                alert("access denied");
+            }
+        }
+
+        var usingImage = 1;
+        function newImage() {
+
+            switch (usingImage) {
+                case 0:
+                    document.getElementById("imgClickAndChange").src = "ant.jpg";
+                    usingImage = 1;
+                    break;
+                case 1:
+                    document.getElementById("imgClickAndChange").src = "CAT.jpg";
+                    usingImage = 2;
+                    break;
+                case 2:
+                    document.getElementById("imgClickAndChange").src = "HORSE.png";
+                    usingImage = 0;
+                    break;
+                default:
+                    document.getElementById("imgClickAndChange").src = "ant.jpg";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Pass phrase by shashanka ravi</h1>
+    <form>
+        <label for="secretphrase">Enter the secret phrase </label>
+        <input type="password" id="secretphrase" name="secretphrase" value="Let me in"> <br>
+        <label for="checkphrase">Enter a phrase</label>
+        <input type="text" id="checkphrase" name="checkphrase" autofocus> <br>
+        <br>
+        <input type="button" onclick="processPhrase()" value="Check the phrase">
+    </form>
+
+    <p id="result">Attempts display here </p>
+    <div class="container">
+        <b><i>
+                <h2> Animals Image</h2>
+        </b></i>
+        <img src="ant.jpg" onClick="newImage()" id="imgClickAndChange" alt="ant" width="200" height="200">
+    </div>
+</body>
+</html>
