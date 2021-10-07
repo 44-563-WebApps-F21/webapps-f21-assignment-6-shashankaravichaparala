@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Arithimetic Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h1>Shashanka ravi chaparala Computes</h1>
+
+    <form>
+        <label for="number_1">Enter a base </label>
+        <input type="number" id="number_1" name="base" value=20> <br>
+
+        <label for="number_2">Enter an exponent </label>
+        <input type="number" id="number_2" name="exponent" value=4> <br>
+
+        <input class="btn btn-primary" type="button" onclick="powers()" value="Compute">
+        <br>
+    </form>
+    <br>
+    <p id="power_results">Results will replaced </p>
+    <br>
+
+    <form>
+        <input type="radio" id="addition_radio" onclick="processRadio()" name="Workingonradio" value="plus">
+        <label for="addition_radio">+ </label>
+        <br>
+        <input type="radio" id="subtraction_radio" onclick="processRadio()" name="Workingonradio" value="minus">
+        <label for="subtraction_radio">- </label>
+        <br>
+        <input type="radio" id="multiplication_radio" onclick="processRadio()" name="Workingonradio" value="times">
+        <label for="multiplication_radio">* </label>
+        <br>
+        <input type="radio" id="division_radio" onclick="processRadio()" name="Workingonradio" value="divide">
+        <label for="division_radio">/ </label>
+    </form>
+
+    <div id="calculation_result"></div>
+    <script>
+
+        function powers() {
+
+            base = document.getElementById("number_1").value
+            exponent = document.getElementById("number_2").value
+            out = document.getElementById("power_results")
+            let power_results = "Powers of " + base + " are: "
+
+            var result = 1;
+            if (exponent == undefined)
+                exponent = 2
+
+            for (var i = 1; i <= exponent; i++) {
+                result = result * base;
+                power_results += result + " "
+            }
+            out.innerHTML = power_results
+        }
+
+        function processRadio() {
+
+            var firstinput = parseInt(document.getElementById("number_1").value);
+            var secondinput = parseInt(document.getElementById("number_2").value);
+
+            process = document.getElementById("calculation_result")
+
+            if (document.getElementById("addition_radio").checked) {
+                process.innerHTML = firstinput + secondinput;
+            } else if (document.getElementById("subtraction_radio").checked) {
+                process.innerHTML = firstinput - secondinput;
+            } else if (document.getElementById("multiplication_radio").checked) {
+                process.innerHTML = firstinput * secondinput;
+            } else {
+                process.innerHTML = firstinput / secondinput;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
