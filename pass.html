@@ -4,20 +4,33 @@
     <title>java script</title>
     <script>
         var correct = 0, wrong = 0;
+        var countN=0;
+        var countP=0;
         function processPhrase() {
 
             secretphrase = document.getElementById("secretphrase").value
             checkphrase = document.getElementById("checkphrase").value
             if (secretphrase == checkphrase) {
                 correct = correct + 1;
+                countN=0;
                 document.getElementById("result").innerHTML = "Correct count " + correct;
                 alert("access allowed");
             } else {
 
                 wrong = wrong + 1;
+                countN++;
                 document.getElementById("result").innerHTML = "Wrong count " + wrong;
                 alert("access denied");
+                if(countN >=3){
+                    if(wrong >=3){
+                    incorrectPassPhrase();
+                    }
+                }
             }
+        }
+
+        function incorrectPassPhrase(){
+            alert("Account Locked")
         }
 
         var usingImage = 1;
